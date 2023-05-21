@@ -22,6 +22,19 @@
                     <span *ngIf="!todo.isDeleting">Delete</span>
                 </button>
             </td>
+            <div class="overlay" *ngIf="todo.isDeleting">
+                <div class="confirm-delete shadow rounded">
+                    <h5>Are you sure?</h5>
+                    <div>
+                        <button (click)="denyDeleteTodo(todo.id)" class="btn btn-sm btn-secondary">
+                            <span>Cancel</span>
+                        </button>
+                        <button (click)="confirmDeleteTodo(todo.id)" class="btn btn-sm btn-danger btn-delete-user">
+                            <span>Delete</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </tr>
         <tr *ngIf="!todos">
             <td colspan="4" class="text-center">

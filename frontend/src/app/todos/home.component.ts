@@ -37,6 +37,14 @@ export class HomeComponent {
     deleteTodo(id: string) {
         const todo = this.todos!.find(x => x.id === id);
         todo.isDeleting = true;
+    }
+
+    denyDeleteTodo(id: string) {
+        const todo = this.todos!.find(x => x.id === id);
+        todo.isDeleting = false;
+    }
+
+    confirmDeleteTodo(id: string) {
         this.accountService.delete(id)
             .subscribe(() => this.todos = this.todos!.filter(x => x.id !== id));
     }
