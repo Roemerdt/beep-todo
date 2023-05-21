@@ -76,7 +76,7 @@ export class AddEditComponent implements OnInit {
     }
 
     private saveTodo() {
-        // create or update user based on id param
+        // create or update todo based on id param
         return this.id
             ? this.accountService.update(this.id!, this.form.value)
             : this.accountService.store(this.form.value);

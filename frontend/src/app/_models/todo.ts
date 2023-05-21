@@ -3,4 +3,5 @@ export class Todo {
     name?: string;
     description?: string;
     priority?: string;
+    updated_at?: string;
 }

@@ -13,9 +13,24 @@ export class HomeComponent {
         this.accountService.getAll()
             .subscribe(response => {
                 this.todos = response;
-                // Sort based on priority
+                // Sort based on priority descending and update time descending
                 const order = ['high', 'medium', 'low'];
-                this.todos = this.todos?.sort((a, b) => order.indexOf(a.priority) - order.indexOf(b.priority));
+                this.todos = this.todos?.sort((a, b): number => {
+                    if (order.indexOf(a.priority) > order.indexOf(b.priority)) {
+                        return 1;
+                    } else if (order.indexOf(a.priority) < order.indexOf(b.priority)) { 
+                        return -1;
+                    }
+                
+                    // else go to the 2nd item
+                    if (a.updated_at > b.updated_at) { 
+                        return -1;
+                    } else if (a.updated_at < b.updated_at) {
+                        return 1
+                    } else { // nothing to split them
+                        return 0;
+                    }
+                });
             });
     }
 

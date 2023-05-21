@@ -4,16 +4,17 @@
     <thead>
         <tr>
             <th style="width: 30%">Name</th>
-            <th style="width: 30%">Description</th>
-            <th style="width: 30%">Priority</th>
-            <th style="width: 10%"></th>
+            <th style="width: 40%">Description</th>
+            <th style="width: 15%">Priority</th>
+            <th style="width: 15%"></th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let todo of todos">
             <td>{{todo.name}}</td>
-            <td>{{todo.description | truncate:[50, '...']}}</td>
+            <td>{{todo.description | truncate:60}}</td>
             <td>{{todo.priority}}</td>
+            <!-- <td>{{todo.updated_at | date: "dd/MM/yy HH:mm:ss"}}</td> -->
             <td style="white-space: nowrap">
                 <a routerLink="edit/{{todo.id}}" class="btn btn-sm btn-primary me-1">Edit</a>
                 <button (click)="deleteTodo(todo.id)" class="btn btn-sm btn-danger btn-delete-user" [disabled]="todo.isDeleting">
