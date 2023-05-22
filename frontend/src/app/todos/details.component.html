@@ -1,0 +1,17 @@
+<div class="col d-flex justify-content-center">
+    <button type="button" routerLink="/" class="btn btn-primary" style="height: 50px; margin-right: 20px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"></path>
+        </svg>
+        Back
+      </button>
+    <div class="card" style="width: 40rem;">
+        <div class="card-body">
+            <h4 class="card-title">{{todo?.name}}</h4>
+            <p class="card-text">{{todo?.description}}</p>
+            <p class="card-text">Priorty: {{todo?.priority}}</p>
+            <p class="card-text">completed: {{todo?.completed}}</p>
+            <p class="card-text">Modified at: {{todo?.updated_at | date: "MMM d y, HH:mm:ss"}}</p>
+        </div>
+    </div>
+</div>

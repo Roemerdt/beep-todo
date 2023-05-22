@@ -24,7 +24,8 @@ class StoreTodoRequest extends FormRequest
         return [
             'name' => ['required', 'max:255'],
             'description' => ['required'],
-            'priority' => ['required']
+            'priority' => ['required'],
+            'completed' => ['boolean']
         ];
     }
 }

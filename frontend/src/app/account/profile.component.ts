@@ -104,6 +104,6 @@ export class ProfileComponent implements OnInit {
             error: (e) => {
                 this.has_image = false;
             }
-         });
+        });
     }
 }

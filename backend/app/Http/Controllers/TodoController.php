@@ -32,7 +32,7 @@ class TodoController extends Controller
             'user_id' => Auth::user()->id,
             'name' => $request->name,
             'description' => $request->description,
-            'priority' => $request->priority,
+            'priority' => $request->priority
         ]);
 
         return new TodoResource($todo);

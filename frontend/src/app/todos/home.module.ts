@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { UsersRoutingModule } from './home-routing.module';
 import { LayoutComponent } from './layout.component';
 import { AddEditComponent } from './add-edit.component';
-import { HomeComponent } from './home.component';
+import { DetailsComponent } from './details.component';
 
 @NgModule({
     imports: [
@@ -15,7 +15,8 @@ import { HomeComponent } from './home.component';
     ],
     declarations: [
         LayoutComponent,
-        AddEditComponent
+        AddEditComponent,
+        DetailsComponent
     ]
 })
 export class HomeModule { }

@@ -1,26 +1,32 @@
 ﻿<h1>Todos</h1>
 <a routerLink="add" class="btn btn-sm btn-success mb-2">Add Todo</a>
-<table class="table table-striped">
+<table class="table table-hover">
     <thead>
         <tr>
-            <th style="width: 30%">Name</th>
-            <th style="width: 40%">Description</th>
+            <th style="width: 5%"></th>
+            <th style="width: 25%">Name</th>
+            <th style="width: 35%">Description</th>
             <th style="width: 15%">Priority</th>
             <th style="width: 15%"></th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let todo of todos">
-            <td>{{todo.name}}</td>
-            <td>{{todo.description | truncate:60}}</td>
-            <td>{{todo.priority}}</td>
-            <!-- <td>{{todo.updated_at | date: "dd/MM/yy HH:mm:ss"}}</td> -->
+            <td style="white-space: nowrap; z-index: 2;">
+                <div class="form-check">
+                    <input (click)="completeTodo(todo.id)" [checked]="todo.completed" class="form-check-input" type="checkbox" style="cursor: pointer;">
+                </div>
+            </td>
+            <td [ngClass]="{'todo-completed': todo.completed}">{{todo.name}}</td>
+            <td [ngClass]="{'todo-completed': todo.completed}">{{todo.description | truncate:60}}</td>
+            <td [ngClass]="{'todo-completed': todo.completed}">{{todo.priority}}</td>
             <td style="white-space: nowrap">
                 <a routerLink="edit/{{todo.id}}" class="btn btn-sm btn-primary me-1">Edit</a>
-                <button (click)="deleteTodo(todo.id)" class="btn btn-sm btn-danger btn-delete-user" [disabled]="todo.isDeleting">
+                <button (click)="deleteTodo(todo.id)" class="btn btn-sm btn-danger btn-delete-user" [disabled]="todo.isDeleting" style="margin-right: 5px;">
                     <span *ngIf="todo.isDeleting" class="spinner-border spinner-border-sm"></span>
                     <span *ngIf="!todo.isDeleting">Delete</span>
                 </button>
+                <a routerLink="view/{{todo.id}}" class="btn btn-sm btn-info me-1">Details</a>
             </td>
             <div class="overlay" *ngIf="todo.isDeleting">
                 <div class="confirm-delete shadow rounded">

@@ -48,4 +48,14 @@ export class HomeComponent {
         this.accountService.delete(id)
             .subscribe(() => this.todos = this.todos!.filter(x => x.id !== id));
     }
+
+    completeTodo(id: string) {
+        // find Todo object
+        const todo = this.todos!.find(x => x.id === id);
+        // modify completed field
+        todo.completed = !todo.completed;
+        // update todo
+        this.accountService.update(id, todo)
+            .subscribe();
+    }
 }
