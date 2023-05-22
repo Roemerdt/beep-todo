@@ -16,6 +16,12 @@ export class HomeComponent {
                 // Sort based on priority descending and update time descending
                 const order = ['high', 'medium', 'low'];
                 this.todos = this.todos?.sort((a, b): number => {
+                    if (a.completed > b.completed) {
+                        return 1;
+                    } else if (b.completed > a.completed) { 
+                        return -1;
+                    }
+
                     if (order.indexOf(a.priority) > order.indexOf(b.priority)) {
                         return 1;
                     } else if (order.indexOf(a.priority) < order.indexOf(b.priority)) { 
