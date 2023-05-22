@@ -10,7 +10,7 @@
             <h4 class="card-title">{{todo?.name}}</h4>
             <p class="card-text">{{todo?.description}}</p>
             <p class="card-text">Priorty: {{todo?.priority}}</p>
-            <p class="card-text">completed: {{todo?.completed}}</p>
+            <p class="card-text">completed: {{todo?.completed && 'yes' || 'no'}}</p>
             <p class="card-text">Modified at: {{todo?.updated_at | date: "MMM d y, HH:mm:ss"}}</p>
         </div>
     </div>
